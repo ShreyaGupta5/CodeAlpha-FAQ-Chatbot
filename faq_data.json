@@ -1,0 +1,253 @@
+[
+  {
+    "id": 1,
+    "category": "Greetings",
+    "question": "Hello! Who are you and how can you help me?",
+    "patterns": [
+      "hi",
+      "hello",
+      "hey there",
+      "who are you",
+      "what is your name",
+      "what can you do",
+      "how can you help me"
+    ],
+    "answer": "Hello! I am your AI FAQ Assistant. I can help answer questions regarding orders, shipping, returns, refunds, payment options, account settings, and discounts. What can I assist you with today?"
+  },
+  {
+    "id": 2,
+    "category": "Greetings",
+    "question": "Goodbye and thank you!",
+    "patterns": [
+      "thank you",
+      "thanks a lot",
+      "bye",
+      "goodbye",
+      "see you later",
+      "have a nice day"
+    ],
+    "answer": "You're very welcome! If you have any more questions, feel free to ask anytime. Have a wonderful day ahead!"
+  },
+  {
+    "id": 3,
+    "category": "Orders",
+    "question": "How can I track my order status?",
+    "patterns": [
+      "how to track order",
+      "where is my order",
+      "track shipment",
+      "order tracking number",
+      "check delivery status of my package"
+    ],
+    "answer": "You can track your order in real-time by visiting the 'My Orders' section on your account dashboard or by clicking the tracking link provided in your shipment confirmation email."
+  },
+  {
+    "id": 4,
+    "category": "Orders",
+    "question": "Can I cancel or modify my order after placing it?",
+    "patterns": [
+      "cancel my order",
+      "how do I cancel an order",
+      "can I change items in my order",
+      "modify order after purchase",
+      "stop order delivery"
+    ],
+    "answer": "You can cancel or modify your order within 60 minutes of placing it directly from 'My Orders'. Once the order has entered the fulfillment/dispatch stage, it cannot be canceled, but you can easily initiate a return upon delivery."
+  },
+  {
+    "id": 5,
+    "category": "Orders",
+    "question": "Can I change my delivery address after placing an order?",
+    "patterns": [
+      "change shipping address",
+      "update delivery address",
+      "wrong address on order",
+      "can I deliver to another location"
+    ],
+    "answer": "If your order has not been dispatched yet, you can update your shipping address in 'My Orders' -> 'Edit Details' or contact our support team immediately. Once dispatched, address changes depend on the courier partner."
+  },
+  {
+    "id": 6,
+    "category": "Shipping",
+    "question": "What are your delivery times and shipping costs?",
+    "patterns": [
+      "shipping fee",
+      "how much is delivery",
+      "delivery charges",
+      "standard shipping duration",
+      "how long does delivery take"
+    ],
+    "answer": "Standard delivery takes 3 to 5 business days and costs $4.99 (Free on all orders over $50). Express 1-2 day delivery is available for $9.99 at checkout."
+  },
+  {
+    "id": 7,
+    "category": "Shipping",
+    "question": "Do you offer international shipping?",
+    "patterns": [
+      "do you ship internationally",
+      "worldwide shipping",
+      "can you deliver outside the country",
+      "international delivery countries"
+    ],
+    "answer": "Yes, we ship to over 50 countries worldwide! International shipping takes 7 to 14 business days, and exact customs/import duties or shipping fees will be calculated at checkout based on your destination."
+  },
+  {
+    "id": 8,
+    "category": "Shipping",
+    "question": "What should I do if my package is delayed or missing?",
+    "patterns": [
+      "package delayed",
+      "my order has not arrived",
+      "lost package",
+      "tracking shows delivered but not received"
+    ],
+    "answer": "If your package hasn't arrived within 2 days after the estimated delivery date, please verify the delivery location with neighbors or building reception. Then reach out to us with your Order ID, and we will open a courier investigation or issue a prompt replacement/refund."
+  },
+  {
+    "id": 9,
+    "category": "Returns & Refunds",
+    "question": "What is your return policy?",
+    "patterns": [
+      "return policy",
+      "how many days to return product",
+      "can I return an opened item",
+      "conditions for returning items"
+    ],
+    "answer": "We offer a 30-day hassle-free return policy from the delivery date. Items must be in original condition, unused, with all tags and original packaging intact."
+  },
+  {
+    "id": 10,
+    "category": "Returns & Refunds",
+    "question": "How do I initiate a return or exchange?",
+    "patterns": [
+      "how to return product",
+      "start a return",
+      "exchange item for another size",
+      "request return label"
+    ],
+    "answer": "To initiate a return, go to 'My Account' -> 'Returns & Replacements', select the item and reason, and download your prepaid return shipping label. Pack the item and drop it off at the designated courier drop point."
+  },
+  {
+    "id": 11,
+    "category": "Returns & Refunds",
+    "question": "How long does it take to receive a refund?",
+    "patterns": [
+      "when will I get my refund",
+      "refund processing time",
+      "how long for refund to hit bank account",
+      "refund status"
+    ],
+    "answer": "Once our warehouse inspects the returned item (usually within 2-3 business days), refunds are issued immediately. It typically reflects in your original payment method within 5 to 7 business days depending on your bank."
+  },
+  {
+    "id": 12,
+    "category": "Payments",
+    "question": "What payment methods are supported?",
+    "patterns": [
+      "payment methods",
+      "accepted cards",
+      "pay with credit card",
+      "can I pay with PayPal",
+      "pay with credit card or PayPal",
+      "do you accept Apple Pay Google Pay",
+      "how can I pay"
+    ],
+    "answer": "We accept major credit/debit cards (Visa, MasterCard, American Express), PayPal, Apple Pay, Google Pay, UPI, and Buy Now Pay Later options like Klarna and Afterpay."
+  },
+  {
+    "id": 13,
+    "category": "Payments",
+    "question": "Is it safe to use my credit card on this website?",
+    "patterns": [
+      "is payment secure",
+      "credit card safety",
+      "data privacy on checkout",
+      "is your checkout encrypted"
+    ],
+    "answer": "Absolutely. All transactions are protected by end-to-end 256-bit SSL encryption and processed via PCI-DSS Level 1 compliant payment gateways. We never store your full card details or CVV."
+  },
+  {
+    "id": 14,
+    "category": "Payments",
+    "question": "Do you offer Cash on Delivery (COD)?",
+    "patterns": [
+      "cash on delivery",
+      "can I pay cash when package arrives",
+      "is COD available"
+    ],
+    "answer": "Cash on Delivery (COD) is available in select pin codes and regions for orders below $200. You can check if COD is eligible at checkout after entering your postal code."
+  },
+  {
+    "id": 15,
+    "category": "Account",
+    "question": "How do I reset my forgotten account password?",
+    "patterns": [
+      "forgot password",
+      "reset my password",
+      "cannot login to my account",
+      "change password"
+    ],
+    "answer": "Click on 'Sign In' at the top right, select 'Forgot Password?', enter your registered email address, and we'll send a secure password reset link to your inbox within minutes."
+  },
+  {
+    "id": 16,
+    "category": "Account",
+    "question": "How do I change my registered email or phone number?",
+    "patterns": [
+      "update email address",
+      "change phone number",
+      "edit account details",
+      "modify profile"
+    ],
+    "answer": "Log into your account, navigate to 'Settings' -> 'Account Information', click 'Edit' next to your email or phone number, and verify the change with an OTP sent to your existing contact info."
+  },
+  {
+    "id": 17,
+    "category": "Discounts & Offers",
+    "question": "How do I apply a discount code or coupon?",
+    "patterns": [
+      "apply coupon code",
+      "use promo code",
+      "where to enter voucher",
+      "discount code box"
+    ],
+    "answer": "During checkout on the payment review page, enter your promo code in the 'Gift Card or Promo Code' field and click 'Apply'. The discount will instantly be deducted from your total amount."
+  },
+  {
+    "id": 18,
+    "category": "Discounts & Offers",
+    "question": "Why is my coupon code not working?",
+    "patterns": [
+      "promo code invalid",
+      "coupon not applying",
+      "voucher code error",
+      "why does my discount not work"
+    ],
+    "answer": "Coupons may fail if they have expired, if the cart value hasn't met the minimum purchase amount, or if certain items in your cart are excluded from promotions. Also check for accidental typos or spaces."
+  },
+  {
+    "id": 19,
+    "category": "Support",
+    "question": "How do I contact a human customer support agent?",
+    "patterns": [
+      "talk to human",
+      "customer support contact",
+      "speak with representative",
+      "support phone number",
+      "email support"
+    ],
+    "answer": "You can reach our human support team via Live Chat (available 24/7 on this website), by calling toll-free at +1 (800) 555-0199 (Mon-Sat 8am-8pm EST), or by emailing support@codealpha-faq.com."
+  },
+  {
+    "id": 20,
+    "category": "Support",
+    "question": "What are your business and customer care operating hours?",
+    "patterns": [
+      "working hours",
+      "when is support open",
+      "customer care timings",
+      "office hours"
+    ],
+    "answer": "Our automated chat and online help center are available 24/7. Live phone agents and dedicated email support specialists are available Monday through Saturday from 8:00 AM to 8:00 PM EST."
+  }
+]

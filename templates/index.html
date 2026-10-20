@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlphaBot • Smart FAQ Chatbot</title>
+    <meta name="description" content="Intelligent NLP-powered FAQ Chatbot for instant question answering using TF-IDF and Cosine Similarity.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- Main Chat Box -->
+        <main class="chat-container" id="chatContainer">
+            <!-- Header -->
+            <header class="chat-header">
+                <div class="bot-profile">
+                    <div class="bot-avatar-wrapper">
+                        <div class="bot-avatar-glow"></div>
+                        <div class="bot-avatar-icon">🤖</div>
+                        <span class="status-indicator" title="Online & ready to answer"></span>
+                    </div>
+                    <div class="bot-info">
+                        <div class="bot-title-row">
+                            <h1 class="bot-name">AlphaBot</h1>
+                            <span class="bot-badge">NLP Matcher</span>
+                        </div>
+                        <p class="bot-subtitle">Customer Support FAQ Assistant • 20 FAQs Loaded</p>
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <button class="icon-btn" id="exploreFaqsBtn" title="Browse FAQ Directory" aria-label="Browse FAQs">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                        <span class="btn-text">Browse FAQs</span>
+                    </button>
+
+                    <button class="icon-btn" id="themeToggleBtn" title="Toggle Theme" aria-label="Toggle Theme">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+
+                    <button class="icon-btn" id="clearChatBtn" title="Clear Chat History" aria-label="Clear Chat">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                        </svg>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Chat History Area -->
+            <div class="chat-messages" id="chatMessages">
+                <!-- Welcome Card -->
+                <div class="welcome-card" id="welcomeCard">
+                    <div class="welcome-badge">NLP Cosine Similarity Engine</div>
+                    <h2 class="welcome-title">Hi there! How can I assist you?</h2>
+                    <p class="welcome-desc">
+                        I analyze your queries with natural language preprocessing, tokenization, lemmatization, and TF-IDF cosine similarity to match the most accurate answer.
+                    </p>
+
+                    <!-- Quick suggestion pills -->
+                    <div class="quick-prompts-label">Popular Topics:</div>
+                    <div class="quick-prompts-grid">
+                        <button class="prompt-chip" data-query="How can I track my order status?">
+                            <span class="chip-icon">📦</span> How to track order?
+                        </button>
+                        <button class="prompt-chip" data-query="What is your return policy?">
+                            <span class="chip-icon">🔄</span> Return policy
+                        </button>
+                        <button class="prompt-chip" data-query="What payment methods are supported?">
+                            <span class="chip-icon">💳</span> Payment options
+                        </button>
+                        <button class="prompt-chip" data-query="What are your delivery times and shipping costs?">
+                            <span class="chip-icon">🚚</span> Shipping & delivery
+                        </button>
+                        <button class="prompt-chip" data-query="How do I reset my forgotten password?">
+                            <span class="chip-icon">🔑</span> Reset password
+                        </button>
+                        <button class="prompt-chip" data-query="How do I contact human customer support?">
+                            <span class="chip-icon">🎧</span> Talk to human agent
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Dynamic messages will be appended here -->
+            </div>
+
+            <!-- Typing Indicator (Hidden by default) -->
+            <div class="typing-indicator" id="typingIndicator">
+                <div class="bot-mini-avatar">🤖</div>
+                <div class="typing-bubble">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <span class="typing-text">Calculating similarity...</span>
+            </div>
+
+            <!-- Chat Input Bar -->
+            <footer class="chat-input-area">
+                <form id="chatForm" class="chat-form" autocomplete="off">
+                    <div class="input-wrapper">
+                        <input 
+                            type="text" 
+                            id="userQueryInput" 
+                            class="chat-input" 
+                            placeholder="Ask a question about orders, shipping, returns, refunds..."
+                            autocomplete="off"
+                            required
+                        >
+                        <button type="button" class="speech-toggle-btn" id="soundToggleBtn" title="Toggle Audio Voice Read-Out">
+                            <span id="speechIcon">🔊</span>
+                        </button>
+                    </div>
+                    <button type="submit" id="sendBtn" class="send-btn" aria-label="Send Message">
+                        <span>Send</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </form>
+                <div class="input-footer-hints">
+                    <span>Press <kbd>Enter</kbd> to send</span>
+                    <span class="bullet">•</span>
+                    <span>Powered by NLTK & Scikit-Learn</span>
+                </div>
+            </footer>
+        </main>
+
+        <!-- FAQ Drawer / Modal -->
+        <div class="modal-backdrop" id="faqModalBackdrop">
+            <aside class="faq-modal" id="faqModal" role="dialog" aria-modal="true" aria-labelledby="faqModalTitle">
+                <div class="faq-modal-header">
+                    <div>
+                        <h2 id="faqModalTitle" class="modal-title">Knowledge Base Explorer</h2>
+                        <p class="modal-subtitle">Browse all pre-trained FAQ questions and answers</p>
+                    </div>
+                    <button class="modal-close-btn" id="closeModalBtn" aria-label="Close Modal">&times;</button>
+                </div>
+
+                <div class="modal-search-wrapper">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" id="faqSearchInput" placeholder="Filter questions by keywords..." class="faq-search-input">
+                </div>
+
+                <div class="faq-category-filters" id="categoryFilters">
+                    <!-- Category pills dynamically populated -->
+                </div>
+
+                <div class="faq-list-container" id="faqListContainer">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
